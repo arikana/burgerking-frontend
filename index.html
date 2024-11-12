@@ -1,20 +1,40 @@
 <!DOCTYPE html>
-<html lang="ko">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>버거킹 메뉴 추천</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Burger King Menu Recommender</title>
+  <script>
+    async function recommendMenu() {
+      const budget = document.getElementById('budget').value; // 사용자가 입력한 예산
+
+      const response = await fetch('https://burgerking-b1l2xcuyz-arikanas-projects.vercel.app/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ budget: parseInt(budget) })
+      });
+
+      const data = await response.json();
+      
+      // 추천 결과 표시
+      const resultElement = document.getElementById('result');
+      if (data.name) {
+        resultElement.innerHTML = `추천 메뉴: ${data.name} (가격: ${data.price} 원)`;
+      } else {
+        resultElement.innerHTML = `추천할 메뉴가 없습니다.`;
+      }
+    }
+  </script>
 </head>
 <body>
-    <h1>버거킹 메뉴 추천 프로그램</h1>
-    <form id="menu-form">
-        <label for="budget">예산 입력 (원):</label>
-        <input type="number" id="budget" name="budget" required>
-        <button type="submit">추천받기</button>
-    </form>
-    <div id="result"></div>
-
-    <script src="script.js"></script>
+  <h1>Burger King Menu Recommender</h1>
+  
+  <label for="budget">예산을 입력하세요: </label>
+  <input type="number" id="budget" name="budget" min="0" />
+  <button onclick="recommendMenu()">추천 받기</button>
+  
+  <h2 id="result"></h2>
 </body>
 </html>

@@ -5,7 +5,7 @@ form.addEventListener('submit', async (event) => {
     const budget = document.getElementById('budget').value;
 
     try {
-        const response = await fetch('https://web-production-72afe.up.railway.app/', {  // Railway에서 제공된 URL로 수정
+        const response = await fetch('htps://web-production-72afe.up.railway.app/', {  // Railway에서 제공된 URL로 수정
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

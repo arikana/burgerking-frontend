@@ -5,7 +5,7 @@ form.addEventListener('submit', async (event) => {
     const budget = document.getElementById('budget').value;
 
     try {
-        const response = await fetch('https://my-flask-app.up.railway.app/recommend', {
+        const response = await fetch('https://your-railway-app-url.up.railway.app/recommend', {  // Railway에서 제공된 URL로 수정
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -8,7 +8,7 @@
     async function recommendMenu() {
       const budget = document.getElementById('budget').value; // 사용자가 입력한 예산
 
-      const response = await fetch('https://burgerking-b1l2xcuyz-arikanas-projects.vercel.app/', {
+      const response = await fetch('https://burgerking-b1l2xcuyz-arikanas-projects.vercel.app/recommend', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

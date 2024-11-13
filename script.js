@@ -1,5 +1,5 @@
 // Vercel에 배포된 Flask 백엔드 URL
-const backendUrl = 'https://burgerking-b1l2xcuyz-arikanas-projects.vercel.app/';
+const backendUrl = 'https://burgerking-b1l2xcuyz-arikanas-projects.vercel.app/recommend';
 
 async function recommendMenu() {
   const budget = document.getElementById('budget').value;
